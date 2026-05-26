@@ -1,0 +1,1173 @@
+<client>
+  <version>69</version>
+  <baseCurrency>EUR</baseCurrency>
+  <securities>
+    <security>
+      <uuid>aaaaaaaa-0001-0000-0000-000000000001</uuid>
+      <name>Example World ETF</name>
+      <currencyCode>EUR</currencyCode>
+      <isin></isin>
+      <tickerSymbol>EWE</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices>
+        <price t="2020-01-01" v="10000000000"/>
+        <price t="2020-02-01" v="9800000000"/>
+        <price t="2020-03-01" v="7800000000"/>
+        <price t="2020-04-01" v="8700000000"/>
+        <price t="2020-05-01" v="9300000000"/>
+        <price t="2020-06-01" v="9900000000"/>
+        <price t="2020-07-01" v="10200000000"/>
+        <price t="2020-08-01" v="10700000000"/>
+        <price t="2020-09-01" v="10400000000"/>
+        <price t="2020-10-01" v="9800000000"/>
+        <price t="2020-11-01" v="10800000000"/>
+        <price t="2020-12-01" v="11200000000"/>
+        <price t="2021-01-01" v="11400000000"/>
+        <price t="2021-02-01" v="11600000000"/>
+        <price t="2021-03-01" v="12000000000"/>
+        <price t="2021-04-01" v="12400000000"/>
+        <price t="2021-05-01" v="12600000000"/>
+        <price t="2021-06-01" v="12800000000"/>
+        <price t="2021-07-01" v="13000000000"/>
+        <price t="2021-08-01" v="13300000000"/>
+        <price t="2021-09-01" v="13100000000"/>
+        <price t="2021-10-01" v="13600000000"/>
+        <price t="2021-11-01" v="13400000000"/>
+        <price t="2021-12-01" v="13800000000"/>
+        <price t="2022-01-01" v="13400000000"/>
+        <price t="2022-02-01" v="12800000000"/>
+        <price t="2022-03-01" v="12500000000"/>
+        <price t="2022-04-01" v="12000000000"/>
+        <price t="2022-05-01" v="11800000000"/>
+        <price t="2022-06-01" v="11000000000"/>
+        <price t="2022-07-01" v="11500000000"/>
+        <price t="2022-08-01" v="11300000000"/>
+        <price t="2022-09-01" v="10600000000"/>
+        <price t="2022-10-01" v="10800000000"/>
+        <price t="2022-11-01" v="11400000000"/>
+        <price t="2022-12-01" v="11200000000"/>
+        <price t="2023-01-01" v="11800000000"/>
+        <price t="2023-02-01" v="11600000000"/>
+        <price t="2023-03-01" v="12000000000"/>
+        <price t="2023-04-01" v="12200000000"/>
+        <price t="2023-05-01" v="12400000000"/>
+        <price t="2023-06-01" v="12800000000"/>
+        <price t="2023-07-01" v="13200000000"/>
+        <price t="2023-08-01" v="13000000000"/>
+        <price t="2023-09-01" v="12700000000"/>
+        <price t="2023-10-01" v="12200000000"/>
+        <price t="2023-11-01" v="13000000000"/>
+        <price t="2023-12-01" v="13800000000"/>
+        <price t="2024-01-01" v="14100000000"/>
+        <price t="2024-02-01" v="14500000000"/>
+        <price t="2024-03-01" v="14800000000"/>
+        <price t="2024-04-01" v="14500000000"/>
+        <price t="2024-05-01" v="14800000000"/>
+        <price t="2024-06-01" v="15000000000"/>
+        <price t="2024-07-01" v="15300000000"/>
+        <price t="2024-08-01" v="15500000000"/>
+        <price t="2024-09-01" v="15400000000"/>
+        <price t="2024-10-01" v="15200000000"/>
+        <price t="2024-11-01" v="15600000000"/>
+        <price t="2024-12-01" v="15800000000"/>
+      </prices>
+      <latest t="2024-12-31" v="15800000000">
+        <high>-1</high>
+        <low>-1</low>
+        <volume>-1</volume>
+      </latest>
+      <attributes>
+        <map/>
+      </attributes>
+      <events/>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+    </security>
+  </securities>
+  <watchlists/>
+  <accounts>
+    <account>
+      <uuid>bbbbbbbb-0001-0000-0000-000000000001</uuid>
+      <name>Example Cash Account</name>
+      <currencyCode>EUR</currencyCode>
+      <isRetired>false</isRetired>
+      <transactions>
+        <account-transaction>
+          <uuid>dddddddd-0001-0000-0000-000000000001</uuid>
+          <date>2020-01-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction>
+          <uuid>eeeeeeee-0001-0000-0000-000000000001</uuid>
+          <date>2020-01-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <security reference="../../../../../securities/security"/>
+          <crossEntry class="buysell">
+            <portfolio>
+              <uuid>cccccccc-0001-0000-0000-000000000001</uuid>
+              <name>Example Depot</name>
+              <isRetired>false</isRetired>
+              <referenceAccount reference="../../../../.."/>
+              <transactions>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0001-0000-0000-000000000001</uuid>
+                  <date>2020-01-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>150000</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell" reference="../../../.."/>
+                  <shares>1500000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0002-0000-0000-000000000001</uuid>
+                  <date>2020-04-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>147900</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0002-0000-0000-000000000001</uuid>
+                      <date>2020-04-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>147900</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1700000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0003-0000-0000-000000000001</uuid>
+                  <date>2020-07-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>142800</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0003-0000-0000-000000000001</uuid>
+                      <date>2020-07-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>142800</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1400000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0004-0000-0000-000000000001</uuid>
+                  <date>2020-10-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>147000</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0004-0000-0000-000000000001</uuid>
+                      <date>2020-10-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>147000</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1500000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0005-0000-0000-000000000001</uuid>
+                  <date>2021-01-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>148200</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0005-0000-0000-000000000001</uuid>
+                      <date>2021-01-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>148200</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1300000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0006-0000-0000-000000000001</uuid>
+                  <date>2021-04-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>148800</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0006-0000-0000-000000000001</uuid>
+                      <date>2021-04-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>148800</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1200000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0007-0000-0000-000000000001</uuid>
+                  <date>2021-07-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>143000</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0007-0000-0000-000000000001</uuid>
+                      <date>2021-07-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>143000</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1100000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0008-0000-0000-000000000001</uuid>
+                  <date>2021-10-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>149600</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0008-0000-0000-000000000001</uuid>
+                      <date>2021-10-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>149600</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1100000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0009-0000-0000-000000000001</uuid>
+                  <date>2022-01-03T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>147400</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0009-0000-0000-000000000001</uuid>
+                      <date>2022-01-03T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>147400</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1100000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0010-0000-0000-000000000001</uuid>
+                  <date>2022-04-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>144000</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0010-0000-0000-000000000001</uuid>
+                      <date>2022-04-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>144000</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1200000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0011-0000-0000-000000000001</uuid>
+                  <date>2022-07-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>149500</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0011-0000-0000-000000000001</uuid>
+                      <date>2022-07-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>149500</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1300000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0012-0000-0000-000000000001</uuid>
+                  <date>2022-10-03T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>140400</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0012-0000-0000-000000000001</uuid>
+                      <date>2022-10-03T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>140400</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1300000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0013-0000-0000-000000000001</uuid>
+                  <date>2023-01-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>141600</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0013-0000-0000-000000000001</uuid>
+                      <date>2023-01-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>141600</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1200000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0014-0000-0000-000000000001</uuid>
+                  <date>2023-04-03T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>146400</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0014-0000-0000-000000000001</uuid>
+                      <date>2023-04-03T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>146400</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1200000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0015-0000-0000-000000000001</uuid>
+                  <date>2023-07-03T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>145200</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0015-0000-0000-000000000001</uuid>
+                      <date>2023-07-03T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>145200</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1100000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0016-0000-0000-000000000001</uuid>
+                  <date>2023-10-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>146400</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0016-0000-0000-000000000001</uuid>
+                      <date>2023-10-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>146400</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1200000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0017-0000-0000-000000000001</uuid>
+                  <date>2024-01-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>141000</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0017-0000-0000-000000000001</uuid>
+                      <date>2024-01-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>141000</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1000000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0018-0000-0000-000000000001</uuid>
+                  <date>2024-04-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>145000</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0018-0000-0000-000000000001</uuid>
+                      <date>2024-04-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>145000</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>1000000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0019-0000-0000-000000000001</uuid>
+                  <date>2024-07-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>137700</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0019-0000-0000-000000000001</uuid>
+                      <date>2024-07-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>137700</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>900000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+                <portfolio-transaction>
+                  <uuid>ffffffff-0020-0000-0000-000000000001</uuid>
+                  <date>2024-10-02T12:00</date>
+                  <currencyCode>EUR</currencyCode>
+                  <amount>136800</amount>
+                  <security reference="../../../../../../../../../securities/security"/>
+                  <crossEntry class="buysell">
+                    <portfolio reference="../../../.."/>
+                    <portfolioTransaction reference="../.."/>
+                    <account reference="../../../../../../../.."/>
+                    <accountTransaction>
+                      <uuid>eeeeeeee-0020-0000-0000-000000000001</uuid>
+                      <date>2024-10-02T12:00</date>
+                      <currencyCode>EUR</currencyCode>
+                      <amount>136800</amount>
+                      <security reference="../../../../../../../../../../../securities/security"/>
+                      <crossEntry class="buysell" reference="../.."/>
+                      <shares>0</shares>
+                      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                      <type>BUY</type>
+                    </accountTransaction>
+                  </crossEntry>
+                  <shares>900000000</shares>
+                  <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+                  <type>BUY</type>
+                </portfolio-transaction>
+              </transactions>
+              <attributes>
+                <map/>
+              </attributes>
+              <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+            </portfolio>
+            <portfolioTransaction reference="../portfolio/transactions/portfolio-transaction"/>
+            <account reference="../../../.."/>
+            <accountTransaction reference="../.."/>
+          </crossEntry>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>BUY</type>
+        </account-transaction>
+        <account-transaction>
+          <uuid>dddddddd-0002-0000-0000-000000000001</uuid>
+          <date>2020-04-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[2]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0003-0000-0000-000000000001</uuid>
+          <date>2020-07-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[3]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0004-0000-0000-000000000001</uuid>
+          <date>2020-10-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[4]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0005-0000-0000-000000000001</uuid>
+          <date>2021-01-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[5]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0006-0000-0000-000000000001</uuid>
+          <date>2021-04-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[6]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0007-0000-0000-000000000001</uuid>
+          <date>2021-07-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[7]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0008-0000-0000-000000000001</uuid>
+          <date>2021-10-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[8]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0009-0000-0000-000000000001</uuid>
+          <date>2022-01-03T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[9]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0010-0000-0000-000000000001</uuid>
+          <date>2022-04-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[10]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0011-0000-0000-000000000001</uuid>
+          <date>2022-07-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[11]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0012-0000-0000-000000000001</uuid>
+          <date>2022-10-03T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[12]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0013-0000-0000-000000000001</uuid>
+          <date>2023-01-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[13]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0014-0000-0000-000000000001</uuid>
+          <date>2023-04-03T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[14]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0015-0000-0000-000000000001</uuid>
+          <date>2023-07-03T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[15]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0016-0000-0000-000000000001</uuid>
+          <date>2023-10-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[16]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0017-0000-0000-000000000001</uuid>
+          <date>2024-01-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[17]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0018-0000-0000-000000000001</uuid>
+          <date>2024-04-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[18]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0019-0000-0000-000000000001</uuid>
+          <date>2024-07-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[19]/crossEntry/accountTransaction"/>
+        <account-transaction>
+          <uuid>dddddddd-0020-0000-0000-000000000001</uuid>
+          <date>2024-10-02T12:00</date>
+          <currencyCode>EUR</currencyCode>
+          <amount>150000</amount>
+          <shares>0</shares>
+          <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+          <type>DEPOSIT</type>
+        </account-transaction>
+        <account-transaction reference="../account-transaction[2]/crossEntry/portfolio/transactions/portfolio-transaction[20]/crossEntry/accountTransaction"/>
+      </transactions>
+      <attributes>
+        <map/>
+      </attributes>
+      <updatedAt>2026-01-01T00:00:00Z</updatedAt>
+    </account>
+  </accounts>
+  <portfolios>
+    <portfolio reference="../../accounts/account/transactions/account-transaction[2]/crossEntry/portfolio"/>
+  </portfolios>
+  <plans/>
+  <taxonomies/>
+  <dashboards>
+    <dashboard name="Dashboard">
+      <id>404faefc-1bdf-4a75-93b6-97cc4df0eb82</id>
+      <configuration>
+        <entry>
+          <string>REPORTING_PERIOD</string>
+          <string>L1Y0</string>
+        </entry>
+      </configuration>
+      <columns>
+        <column>
+          <weight>1</weight>
+          <widgets>
+            <widget type="HEADING">
+              <label>Kennzahlen</label>
+              <configuration/>
+            </widget>
+            <widget type="TTWROR">
+              <label>True Time-Weighted Rate of Return (kumulativ)</label>
+              <configuration/>
+            </widget>
+            <widget type="IRR">
+              <label>Interner Zinsfuß (IZF)</label>
+              <configuration/>
+            </widget>
+            <widget type="ABSOLUTE_CHANGE">
+              <label>Absolute Veränderung</label>
+              <configuration/>
+            </widget>
+            <widget type="DELTA">
+              <label>Delta (im Berichtszeitraum)</label>
+              <configuration/>
+            </widget>
+            <widget type="HEADING">
+              <label>Letzter Tag</label>
+              <configuration/>
+            </widget>
+            <widget type="TTWROR">
+              <label>True Time-Weighted Rate of Return (kumulativ)</label>
+              <configuration>
+                <entry>
+                  <string>REPORTING_PERIOD</string>
+                  <string>T1</string>
+                </entry>
+              </configuration>
+            </widget>
+            <widget type="ABSOLUTE_CHANGE">
+              <label>Absolute Veränderung</label>
+              <configuration>
+                <entry>
+                  <string>REPORTING_PERIOD</string>
+                  <string>T1</string>
+                </entry>
+              </configuration>
+            </widget>
+          </widgets>
+        </column>
+        <column>
+          <weight>1</weight>
+          <widgets>
+            <widget type="HEADING">
+              <label>Risikokennzahlen</label>
+              <configuration/>
+            </widget>
+            <widget type="MAXDRAWDOWN">
+              <label>Maximaler Drawdown</label>
+              <configuration/>
+            </widget>
+            <widget type="MAXDRAWDOWNDURATION">
+              <label>Maximale Drawdown Duration</label>
+              <configuration/>
+            </widget>
+            <widget type="VOLATILITY">
+              <label>Volatilität</label>
+              <configuration/>
+            </widget>
+            <widget type="SEMIVOLATILITY">
+              <label>Semivolatilität</label>
+              <configuration/>
+            </widget>
+            <widget type="TTWROR_ANNUALIZED">
+              <label>True Time-Weighted Rate of Return (annualisiert)</label>
+              <configuration/>
+            </widget>
+            <widget type="ACTIVITY_CHART">
+              <label>Handelsaktivität</label>
+              <configuration/>
+            </widget>
+            <widget type="HEATMAP_INVESTMENTS">
+              <label>Monatliche Investitionen</label>
+              <configuration/>
+            </widget>
+          </widgets>
+        </column>
+        <column>
+          <weight>1</weight>
+          <widgets>
+            <widget type="HEADING">
+              <label>Berechnung</label>
+              <configuration/>
+            </widget>
+            <widget type="CALCULATION">
+              <label>Performance-Berechnung</label>
+              <configuration/>
+            </widget>
+          </widgets>
+        </column>
+      </columns>
+    </dashboard>
+  </dashboards>
+  <properties/>
+  <settings>
+    <bookmarks>
+      <bookmark>
+        <label>finance.yahoo.com</label>
+        <pattern>https://finance.yahoo.com/quote/{tickerSymbol}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>onvista.de</label>
+        <pattern>https://www.onvista.de/suche.html?SEARCH_VALUE={isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>finanzen.net</label>
+        <pattern>https://www.finanzen.net/suchergebnis.asp?frmAktiensucheTextfeld={isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>ariva.de</label>
+        <pattern>https://www.ariva.de/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>justetf.com  (ETF)</label>
+        <pattern>https://www.justetf.com/etf-profile.html?isin={isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>fondsweb.com</label>
+        <pattern>https://www.fondsweb.com/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>morningstar.de</label>
+        <pattern>https://www.morningstar.de/de/funds/SecuritySearchResults.aspx?type=ALL&amp;search={isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>extraETF.com (ETF)</label>
+        <pattern>https://extraetf.com/etf-profile/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>alleaktien.de (Aktie)</label>
+        <pattern>https://www.alleaktien.de/data/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>comdirect.de (Aktie)</label>
+        <pattern>https://www.comdirect.de/inf/aktien/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>comdirect.de (ETF)</label>
+        <pattern>https://www.comdirect.de/inf/etfs/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>divvydiary.com</label>
+        <pattern>https://divvydiary.com/symbols/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>trackingdifferences.com (ETF)</label>
+        <pattern>https://www.trackingdifferences.com/ETF/ISIN/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>tradingview.com</label>
+        <pattern>https://www.tradingview.com/chart/?symbol=XETR:{tickerSymbolPrefix}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>cnbc.com (Aktie)</label>
+        <pattern>https://www.cnbc.com/quotes/{tickerSymbolPrefix}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>nasdaq.com (Aktie)</label>
+        <pattern>https://www.nasdaq.com/market-activity/stocks/{tickerSymbolPrefix}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>aktienfinder.net (Aktie)</label>
+        <pattern>https://aktienfinder.net/aktien-profil/{isin}</pattern>
+      </bookmark>
+      <bookmark>
+        <label>aktien.guide (Aktie)</label>
+        <pattern>http://aktien.guide/isin/aktien/{isin}</pattern>
+      </bookmark>
+    </bookmarks>
+    <attributeTypes>
+      <attribute-type>
+        <id>logo</id>
+        <name>Logo</name>
+        <columnLabel>Logo</columnLabel>
+        <target>name.abuchen.portfolio.model.Security</target>
+        <type>java.lang.String</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$ImageConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>logo</id>
+        <name>Logo</name>
+        <columnLabel>Logo</columnLabel>
+        <target>name.abuchen.portfolio.model.Account</target>
+        <type>java.lang.String</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$ImageConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>logo</id>
+        <name>Logo</name>
+        <columnLabel>Logo</columnLabel>
+        <target>name.abuchen.portfolio.model.Portfolio</target>
+        <type>java.lang.String</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$ImageConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>logo</id>
+        <name>Logo</name>
+        <columnLabel>Logo</columnLabel>
+        <target>name.abuchen.portfolio.model.InvestmentPlan</target>
+        <type>java.lang.String</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$ImageConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>ter</id>
+        <name>Gesamtkostenquote (TER)</name>
+        <columnLabel>TER</columnLabel>
+        <source>ter</source>
+        <target>name.abuchen.portfolio.model.Security</target>
+        <type>java.lang.Double</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$PercentConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>aum</id>
+        <name>Fondsgröße</name>
+        <columnLabel>Fondsgröße</columnLabel>
+        <target>name.abuchen.portfolio.model.Security</target>
+        <type>java.lang.Long</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$AmountPlainConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>vendor</id>
+        <name>Anbieter</name>
+        <columnLabel>Anbieter</columnLabel>
+        <source>vendor</source>
+        <target>name.abuchen.portfolio.model.Security</target>
+        <type>java.lang.String</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$StringConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>acquisitionFee</id>
+        <name>Kaufgebühr (prozentual)</name>
+        <columnLabel>Kaufgebühr</columnLabel>
+        <target>name.abuchen.portfolio.model.Security</target>
+        <type>java.lang.Double</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$PercentConverter</converterClass>
+        <properties/>
+      </attribute-type>
+      <attribute-type>
+        <id>managementFee</id>
+        <name>Verwaltungsgebühr (prozentual)</name>
+        <columnLabel>Verwaltungsgebühr</columnLabel>
+        <target>name.abuchen.portfolio.model.Security</target>
+        <type>java.lang.Double</type>
+        <converterClass>name.abuchen.portfolio.model.AttributeType$PercentConverter</converterClass>
+        <properties/>
+      </attribute-type>
+    </attributeTypes>
+    <configurationSets>
+      <entry>
+        <string>reporting-periods</string>
+        <config-set>
+          <configurations>
+            <config>
+              <uuid></uuid>
+              <name></name>
+              <data>L1Y0</data>
+            </config>
+            <config>
+              <uuid></uuid>
+              <name></name>
+              <data>L2Y0</data>
+            </config>
+            <config>
+              <uuid></uuid>
+              <name></name>
+              <data>L3Y0</data>
+            </config>
+            <config>
+              <uuid></uuid>
+              <name></name>
+              <data>S2020-01-01</data>
+            </config>
+            <config>
+              <uuid></uuid>
+              <name></name>
+              <data>L5Y0</data>
+            </config>
+            <config>
+              <uuid></uuid>
+              <name></name>
+              <data>F2020-01-01_2024-12-31</data>
+            </config>
+          </configurations>
+        </config-set>
+      </entry>
+      <entry>
+        <string>name.abuchen.portfolio.ui.views.StatementOfAssetsViewer</string>
+        <config-set>
+          <configurations>
+            <config>
+              <uuid>8da80dff-43c4-452e-b313-5d0a177f6859</uuid>
+              <name>Standard</name>
+              <data>{&quot;items&quot;:[{&quot;id&quot;:&quot;0&quot;,&quot;width&quot;:80},{&quot;id&quot;:&quot;1&quot;,&quot;width&quot;:300},{&quot;id&quot;:&quot;2&quot;,&quot;width&quot;:80},{&quot;id&quot;:&quot;4&quot;,&quot;width&quot;:60},{&quot;id&quot;:&quot;5&quot;,&quot;width&quot;:80},{&quot;id&quot;:&quot;6&quot;,&quot;width&quot;:80},{&quot;id&quot;:&quot;note&quot;,&quot;width&quot;:1048}]}</data>
+            </config>
+          </configurations>
+        </config-set>
+      </entry>
+      <entry>
+        <string>client-filter-definitions</string>
+        <config-set>
+          <configurations/>
+        </config-set>
+      </entry>
+      <entry>
+        <string>client-filter-selection</string>
+        <config-set>
+          <configurations/>
+        </config-set>
+      </entry>
+    </configurationSets>
+  </settings>
+</client>

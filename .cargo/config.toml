@@ -1,0 +1,4 @@
+[env]
+# Avoid pkg-config requirement for fontconfig when cross-compiling (Android/iOS).
+# On Linux desktop this is also fine — fontconfig is loaded at runtime via dlopen.
+RUST_FONTCONFIG_DLOPEN = "on"

@@ -1,0 +1,18 @@
+[package]
+name = "portfolio-forecast-desktop"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "portfolio-forecast-desktop"
+path = "src/main.rs"
+
+[dependencies]
+portfolio-forecast-common = { path = "../common" }
+gpui = { git = "https://github.com/zed-industries/zed", rev = "5688167d224b5eca54875d49afb8bfd73a07915a", package = "gpui", default-features = false }
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "5688167d224b5eca54875d49afb8bfd73a07915a", package = "gpui_platform", features = ["x11", "wayland"] }
+rfd = "0.17"
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+log = "0.4"

@@ -1,0 +1,21 @@
+[workspace]
+members = ["common", "android", "ios", "desktop"]
+resolver = "2"
+
+# To override gpui-mobile with a local checkout (e.g. for local patches), add:
+# [patch.'https://github.com/itsbalamurali/gpui-mobile.git']
+# gpui-mobile = { path = "/path/to/gpui-mobile" }
+
+[patch.crates-io]
+async-task = { git = "https://github.com/smol-rs/async-task.git", rev = "b4486cd71e4e94fbda54ce6302444de14f4d190e" }
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[profile.dev]
+opt-level = 0
+debug = true

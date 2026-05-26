@@ -1,0 +1,22 @@
+[package]
+name = "portfolio-forecast-common"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+gpui-mobile = { git = "https://github.com/itsbalamurali/gpui-mobile.git", rev = "1d3ec2a1d14a63b74d1f4269340441d4eeada27a" }
+gpui = { git = "https://github.com/zed-industries/zed", rev = "5688167d224b5eca54875d49afb8bfd73a07915a", package = "gpui", default-features = false }
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+log = "0.4"
+prost = "0.13"
+prost-types = "0.13"
+thiserror = "2"
+zip = "2"
+
+[target.'cfg(target_os = "android")'.dependencies]
+jni = "0.22"
+
+[build-dependencies]
+prost-build = "0.13"

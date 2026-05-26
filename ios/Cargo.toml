@@ -1,0 +1,14 @@
+[package]
+name = "portfolio-forecast-ios"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "staticlib", "lib"]
+
+[dependencies]
+portfolio-forecast-common = { path = "../common" }
+gpui-mobile = { git = "https://github.com/itsbalamurali/gpui-mobile.git", rev = "1d3ec2a1d14a63b74d1f4269340441d4eeada27a" }
+gpui = { git = "https://github.com/zed-industries/zed", rev = "5688167d224b5eca54875d49afb8bfd73a07915a", package = "gpui", default-features = false }
+log = "0.4"
