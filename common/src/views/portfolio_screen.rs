@@ -524,43 +524,92 @@ fn paint_nav_chart(bounds: Bounds<Pixels>, data: ChartData, window: &mut Window,
 
     // ── Forecast legend ───────────────────────────────────────────────────
     if let Some((twr, avg_m, months)) = data.forecast_legend {
+        // Place legend at bottom of forecast area to avoid overlapping the
+        // forecast curve and milestone markers on small touch screens.
         let leg_w = 182.0f32;
         let leg_h = 58.0f32;
-        let leg_x = (cl + cw - leg_w as f64 - 6.0) as f32;
-        let leg_y = (ct + 8.0) as f32;
         let leg_col = hsla(0.08, 0.9, 0.65, 1.0);
 
-        window.paint_quad(fill(
-            Bounds {
-                origin: point(px(leg_x), px(leg_y)),
-                size:   size(px(leg_w), px(leg_h)),
-            },
-            hsla(0.0, 0.0, 0.14, 0.92),
-        ));
+        if has_forecast {
+            let f_start = xd(max_day_hist);
+            let f_end = xd(max_day);
+            let f_width = f_end - f_start;
 
-        let sign = |v: f64| if v >= 0.0 { "+" } else { "-" };
-        let leg_lines = [
-            format!("TTWROR    {:+.1} % p.a.", twr * 100.0),
-            format!("Monthly   {}{}", sign(avg_m), fmt_nav(avg_m.abs())),
-            format!("Period    {} months", months),
-        ];
-        let ts_leg = window.text_system().clone();
-        for (i, line) in leg_lines.iter().enumerate() {
-            let shaped = ts_leg.shape_line(
-                line.clone().into(),
-                px(10.5),
-                &[TextRun {
-                    len: line.len(),
-                    font: font(".SystemUIFont"),
-                    color: leg_col,
-                    background_color: None,
-                    underline: None,
-                    strikethrough: None,
-                }],
-                None,
-            );
-            let ly = leg_y + 8.0 + i as f32 * 17.0;
-            shaped.paint(point(px(leg_x + 8.0), px(ly)), px(13.0), TextAlign::Left, None, window, cx).ok();
+            let leg_x = if f_width > leg_w + 12.0 {
+                f_end - leg_w - 6.0
+            } else {
+                f_start + (f_width - leg_w) / 2.0
+            };
+            let leg_y = (ct + ch - leg_h as f64 - 8.0) as f32;
+
+            window.paint_quad(fill(
+                Bounds {
+                    origin: point(px(leg_x), px(leg_y)),
+                    size:   size(px(leg_w), px(leg_h)),
+                },
+                hsla(0.0, 0.0, 0.14, 0.92),
+            ));
+
+            let sign = |v: f64| if v >= 0.0 { "+" } else { "-" };
+            let leg_lines = [
+                format!("TTWROR    {:+.1} % p.a.", twr * 100.0),
+                format!("Monthly   {}{}", sign(avg_m), fmt_nav(avg_m.abs())),
+                format!("Period    {} months", months),
+            ];
+            let ts_leg = window.text_system().clone();
+            for (i, line) in leg_lines.iter().enumerate() {
+                let shaped = ts_leg.shape_line(
+                    line.clone().into(),
+                    px(10.5),
+                    &[TextRun {
+                        len: line.len(),
+                        font: font(".SystemUIFont"),
+                        color: leg_col,
+                        background_color: None,
+                        underline: None,
+                        strikethrough: None,
+                    }],
+                    None,
+                );
+                let ly = leg_y + 8.0 + i as f32 * 17.0;
+                shaped.paint(point(px(leg_x + 8.0), px(ly)), px(13.0), TextAlign::Left, None, window, cx).ok();
+            }
+        } else {
+            let leg_x = (cl + cw - leg_w as f64 - 6.0) as f32;
+            let leg_y = (ct + 8.0) as f32;
+
+            window.paint_quad(fill(
+                Bounds {
+                    origin: point(px(leg_x), px(leg_y)),
+                    size:   size(px(leg_w), px(leg_h)),
+                },
+                hsla(0.0, 0.0, 0.14, 0.92),
+            ));
+
+            let sign = |v: f64| if v >= 0.0 { "+" } else { "-" };
+            let leg_lines = [
+                format!("TTWROR    {:+.1} % p.a.", twr * 100.0),
+                format!("Monthly   {}{}", sign(avg_m), fmt_nav(avg_m.abs())),
+                format!("Period    {} months", months),
+            ];
+            let ts_leg = window.text_system().clone();
+            for (i, line) in leg_lines.iter().enumerate() {
+                let shaped = ts_leg.shape_line(
+                    line.clone().into(),
+                    px(10.5),
+                    &[TextRun {
+                        len: line.len(),
+                        font: font(".SystemUIFont"),
+                        color: leg_col,
+                        background_color: None,
+                        underline: None,
+                        strikethrough: None,
+                    }],
+                    None,
+                );
+                let ly = leg_y + 8.0 + i as f32 * 17.0;
+                shaped.paint(point(px(leg_x + 8.0), px(ly)), px(13.0), TextAlign::Left, None, window, cx).ok();
+            }
         }
     }
 

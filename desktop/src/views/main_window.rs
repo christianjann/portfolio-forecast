@@ -412,43 +412,98 @@ fn paint_nav_chart(bounds: Bounds<Pixels>, data: ChartData, window: &mut Window,
 
     // ---- Forecast legend ----
     if let Some((twr, avg_m, months)) = data.forecast_legend {
+        // Prefer placing the legend at the bottom of the forecast area so it
+        // does not overlap the forecast curve or milestone markers.
         let leg_w = 182.0f32;
         let leg_h = 58.0f32;
-        let leg_x = (cl + cw - leg_w as f64 - 6.0) as f32;
-        let leg_y = (ct + 8.0) as f32;
         let leg_col = hsla(0.08, 0.9, 0.65, 1.0);
 
-        window.paint_quad(fill(
-            Bounds {
-                origin: point(px(leg_x), px(leg_y)),
-                size:   size(px(leg_w), px(leg_h)),
-            },
-            hsla(0.0, 0.0, 0.14, 0.92),
-        ));
+        if has_forecast {
+            // forecast area runs from last historical day to max_day
+            let f_start = xd(max_day_hist);
+            let f_end = xd(max_day);
+            let f_width = f_end - f_start;
 
-        let sign = |v: f64| if v >= 0.0 { "+" } else { "-" };
-        let leg_lines = [
-            format!("TTWROR    {:+.1} % p.a.", twr * 100.0),
-            format!("Monthly   {}{}", sign(avg_m), fmt_nav(avg_m.abs())),
-            format!("Period    {} months", months),
-        ];
-        let ts_leg = window.text_system().clone();
-        for (i, line) in leg_lines.iter().enumerate() {
-            let shaped = ts_leg.shape_line(
-                line.clone().into(),
-                px(10.5),
-                &[TextRun {
-                    len: line.len(),
-                    font: font(".SystemUIFont"),
-                    color: leg_col,
-                    background_color: None,
-                    underline: None,
-                    strikethrough: None,
-                }],
-                None,
-            );
-            let ly = leg_y + 8.0 + i as f32 * 17.0;
-            shaped.paint(point(px(leg_x + 8.0), px(ly)), px(13.0), TextAlign::Left, None, window, cx).ok();
+            let leg_x = if f_width > leg_w + 12.0 {
+                // right-aligned inside forecast area with a small inset
+                f_end - leg_w - 6.0
+            } else {
+                // if forecast area is too narrow, center the legend inside it
+                f_start + (f_width - leg_w) / 2.0
+            };
+            // place legend at bottom of forecast area with an 8px inset
+            let leg_y = (ct + ch - leg_h as f64 - 8.0) as f32;
+
+            window.paint_quad(fill(
+                Bounds {
+                    origin: point(px(leg_x), px(leg_y)),
+                    size:   size(px(leg_w), px(leg_h)),
+                },
+                hsla(0.0, 0.0, 0.14, 0.92),
+            ));
+
+            let sign = |v: f64| if v >= 0.0 { "+" } else { "-" };
+            let leg_lines = [
+                format!("TTWROR    {:+.1} % p.a.", twr * 100.0),
+                format!("Monthly   {}{}", sign(avg_m), fmt_nav(avg_m.abs())),
+                format!("Period    {} months", months),
+            ];
+            let ts_leg = window.text_system().clone();
+            for (i, line) in leg_lines.iter().enumerate() {
+                let shaped = ts_leg.shape_line(
+                    line.clone().into(),
+                    px(10.5),
+                    &[TextRun {
+                        len: line.len(),
+                        font: font(".SystemUIFont"),
+                        color: leg_col,
+                        background_color: None,
+                        underline: None,
+                        strikethrough: None,
+                    }],
+                    None,
+                );
+                let ly = leg_y + 8.0 + i as f32 * 17.0;
+                shaped.paint(point(px(leg_x + 8.0), px(ly)), px(13.0), TextAlign::Left, None, window, cx).ok();
+            }
+        } else {
+            // fallback to previous placement if for some reason there's no
+            // forecast points (shouldn't normally happen when legend is set)
+            let leg_x = (cl + cw - leg_w as f64 - 6.0) as f32;
+            let leg_y = (ct + 8.0) as f32;
+
+            window.paint_quad(fill(
+                Bounds {
+                    origin: point(px(leg_x), px(leg_y)),
+                    size:   size(px(leg_w), px(leg_h)),
+                },
+                hsla(0.0, 0.0, 0.14, 0.92),
+            ));
+
+            let sign = |v: f64| if v >= 0.0 { "+" } else { "-" };
+            let leg_lines = [
+                format!("TTWROR    {:+.1} % p.a.", twr * 100.0),
+                format!("Monthly   {}{}", sign(avg_m), fmt_nav(avg_m.abs())),
+                format!("Period    {} months", months),
+            ];
+            let ts_leg = window.text_system().clone();
+            for (i, line) in leg_lines.iter().enumerate() {
+                let shaped = ts_leg.shape_line(
+                    line.clone().into(),
+                    px(10.5),
+                    &[TextRun {
+                        len: line.len(),
+                        font: font(".SystemUIFont"),
+                        color: leg_col,
+                        background_color: None,
+                        underline: None,
+                        strikethrough: None,
+                    }],
+                    None,
+                );
+                let ly = leg_y + 8.0 + i as f32 * 17.0;
+                shaped.paint(point(px(leg_x + 8.0), px(ly)), px(13.0), TextAlign::Left, None, window, cx).ok();
+            }
         }
     }
 
