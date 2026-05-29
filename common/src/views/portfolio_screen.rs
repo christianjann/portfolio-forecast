@@ -29,6 +29,8 @@ pub struct PortfolioScreen {
     forecast_twr: f64,
     forecast_avg_monthly: f64,
     forecast_months_used: u32,
+    /// Current orientation: true = landscape, false = portrait
+    is_landscape: bool,
 }
 
 struct ChartData {
@@ -52,6 +54,19 @@ impl PortfolioScreen {
             forecast_twr: 0.0,
             forecast_avg_monthly: 0.0,
             forecast_months_used: 0,
+                is_landscape: {
+                    #[cfg(target_os = "android")]
+                    {
+                        match crate::android_orientation::is_landscape() {
+                            Ok(v) => v,
+                            Err(_) => true,
+                        }
+                    }
+                    #[cfg(not(target_os = "android"))]
+                    {
+                        true
+                    }
+                },
         }
     }
 
@@ -112,81 +127,201 @@ impl Render for PortfolioScreen {
             None
         };
 
+        let toolbar = if self.is_landscape {
+            div()
+                .flex()
+                .flex_row()
+                .items_center()
+                .gap_2()
+                .px_3()
+                .py_3()
+                .bg(hsla(0.0, 0.0, 0.14, 1.0))
+                .child(
+                    div()
+                        .id("open-btn")
+                        .px_5()
+                        .py_3()
+                        .bg(hsla(0.6, 0.7, 0.45, 1.0))
+                        .rounded_lg()
+                        .cursor_pointer()
+                        .text_color(hsla(0.0, 0.0, 1.0, 1.0))
+                        .child("Open")
+                        .on_mouse_down(
+                            MouseButton::Left,
+                            cx.listener(|this, _event, _window, cx| {
+                                pick_and_load(this, cx);
+                            }),
+                        ),
+                )
+                .when(has_data, |row| {
+                    row.child(
+                        div()
+                            .id("forecast-btn")
+                            .px_4()
+                            .py_3()
+                            .bg(hsla(0.08, 0.7, 0.45, 1.0))
+                            .rounded_lg()
+                            .cursor_pointer()
+                            .text_color(hsla(0.0, 0.0, 1.0, 1.0))
+                            .child(if show_forecast { "Hide Forecast" } else { "Forecast" })
+                            .on_mouse_down(
+                                MouseButton::Left,
+                                cx.listener(|this, _event, _window, cx| {
+                                    this.show_forecast = !this.show_forecast;
+                                    if this.show_forecast {
+                                        if let Some(client) = &this.client {
+                                            let res = compute_forecast(client, &this.nav_series);
+                                            this.forecast_series      = res.series;
+                                            this.forecast_twr         = res.annual_twr;
+                                            this.forecast_avg_monthly = res.avg_monthly;
+                                            this.forecast_months_used = res.months_used;
+                                        }
+                                    } else {
+                                        this.forecast_series.clear();
+                                        this.forecast_twr         = 0.0;
+                                        this.forecast_avg_monthly = 0.0;
+                                        this.forecast_months_used = 0;
+                                    }
+                                    cx.notify();
+                                }),
+                            ),
+                    )
+                })
+                .child(
+                    div()
+                        .id("orient-btn")
+                        .px_3()
+                        .py_3()
+                        .bg(hsla(0.55, 0.7, 0.45, 1.0))
+                        .rounded_lg()
+                        .cursor_pointer()
+                        .text_color(hsla(0.0, 0.0, 1.0, 1.0))
+                        .child(if self.is_landscape { "Portrait" } else { "Landscape" })
+                        .on_mouse_down(
+                            MouseButton::Left,
+                            cx.listener(|this, _event, _window, cx| {
+                                this.is_landscape = !this.is_landscape;
+                                this.cursor_x = None;
+                                #[cfg(target_os = "android")]
+                                {
+                                    let _ = crate::android_orientation::set_orientation(this.is_landscape);
+                                }
+                                cx.notify();
+                            }),
+                        ),
+                )
+                .child(
+                    div()
+                        .flex_1()
+                        .text_color(hsla(0.0, 0.0, 0.6, 1.0))
+                        .text_sm()
+                        .overflow_hidden()
+                        .child(status),
+                )
+        } else {
+            div()
+                .flex()
+                .flex_col()
+                .gap_2()
+                .px_3()
+                .py_3()
+                .bg(hsla(0.0, 0.0, 0.14, 1.0))
+                .child(
+                    div()
+                        .flex()
+                        .flex_row()
+                        .items_center()
+                        .gap_2()
+                        .child(
+                            div()
+                                .id("open-btn")
+                                .px_5()
+                                .py_3()
+                                .bg(hsla(0.6, 0.7, 0.45, 1.0))
+                                .rounded_lg()
+                                .cursor_pointer()
+                                .text_color(hsla(0.0, 0.0, 1.0, 1.0))
+                                .child("Open")
+                                .on_mouse_down(
+                                    MouseButton::Left,
+                                    cx.listener(|this, _event, _window, cx| {
+                                        pick_and_load(this, cx);
+                                    }),
+                                ),
+                        )
+                        .when(has_data, |row| {
+                            row.child(
+                                div()
+                                    .id("forecast-btn")
+                                    .px_4()
+                                    .py_3()
+                                    .bg(hsla(0.08, 0.7, 0.45, 1.0))
+                                    .rounded_lg()
+                                    .cursor_pointer()
+                                    .text_color(hsla(0.0, 0.0, 1.0, 1.0))
+                                    .child(if show_forecast { "Hide Forecast" } else { "Forecast" })
+                                    .on_mouse_down(
+                                        MouseButton::Left,
+                                        cx.listener(|this, _event, _window, cx| {
+                                            this.show_forecast = !this.show_forecast;
+                                            if this.show_forecast {
+                                                if let Some(client) = &this.client {
+                                                    let res = compute_forecast(client, &this.nav_series);
+                                                    this.forecast_series      = res.series;
+                                                    this.forecast_twr         = res.annual_twr;
+                                                    this.forecast_avg_monthly = res.avg_monthly;
+                                                    this.forecast_months_used = res.months_used;
+                                                }
+                                            } else {
+                                                this.forecast_series.clear();
+                                                this.forecast_twr         = 0.0;
+                                                this.forecast_avg_monthly = 0.0;
+                                                this.forecast_months_used = 0;
+                                            }
+                                            cx.notify();
+                                        }),
+                                    ),
+                            )
+                        })
+                        .child(
+                            div()
+                                .id("orient-btn")
+                                .px_3()
+                                .py_3()
+                                .bg(hsla(0.55, 0.7, 0.45, 1.0))
+                                .rounded_lg()
+                                .cursor_pointer()
+                                .text_color(hsla(0.0, 0.0, 1.0, 1.0))
+                                .child(if self.is_landscape { "Portrait" } else { "Landscape" })
+                                .on_mouse_down(
+                                    MouseButton::Left,
+                                    cx.listener(|this, _event, _window, cx| {
+                                        this.is_landscape = !this.is_landscape;
+                                        this.cursor_x = None;
+                                        #[cfg(target_os = "android")]
+                                        {
+                                            let _ = crate::android_orientation::set_orientation(this.is_landscape);
+                                        }
+                                        cx.notify();
+                                    }),
+                                ),
+                        ),
+                )
+                .child(
+                    div()
+                        .w_full()
+                        .text_color(hsla(0.0, 0.0, 0.6, 1.0))
+                        .text_sm()
+                        .overflow_hidden()
+                        .child(status),
+                )
+        };
+
         div()
             .flex()
             .flex_col()
             .size_full()
             .bg(hsla(0.0, 0.0, 0.08, 1.0))
-            // ── Toolbar ─────────────────────────────────────────────────
-            .child(
-                div()
-                    .flex()
-                    .flex_row()
-                    .items_center()
-                    .gap_2()
-                    .px_3()
-                    .py_3()
-                    .bg(hsla(0.0, 0.0, 0.14, 1.0))
-                    .child(
-                        div()
-                            .id("open-btn")
-                            .px_5()
-                            .py_3()
-                            .bg(hsla(0.6, 0.7, 0.45, 1.0))
-                            .rounded_lg()
-                            .cursor_pointer()
-                            .text_color(hsla(0.0, 0.0, 1.0, 1.0))
-                            .child("Open")
-                            .on_mouse_down(
-                                MouseButton::Left,
-                                cx.listener(|this, _event, _window, cx| {
-                                    pick_and_load(this, cx);
-                                }),
-                            ),
-                    )
-                    .when(has_data, |row| {
-                        row.child(
-                            div()
-                                .id("forecast-btn")
-                                .px_4()
-                                .py_3()
-                                .bg(hsla(0.08, 0.7, 0.45, 1.0))
-                                .rounded_lg()
-                                .cursor_pointer()
-                                .text_color(hsla(0.0, 0.0, 1.0, 1.0))
-                                .child(if show_forecast { "Hide Forecast" } else { "Forecast" })
-                                .on_mouse_down(
-                                    MouseButton::Left,
-                                    cx.listener(|this, _event, _window, cx| {
-                                        this.show_forecast = !this.show_forecast;
-                                        if this.show_forecast {
-                                            if let Some(client) = &this.client {
-                                                let res = compute_forecast(client, &this.nav_series);
-                                                this.forecast_series      = res.series;
-                                                this.forecast_twr         = res.annual_twr;
-                                                this.forecast_avg_monthly = res.avg_monthly;
-                                                this.forecast_months_used = res.months_used;
-                                            }
-                                        } else {
-                                            this.forecast_series.clear();
-                                            this.forecast_twr         = 0.0;
-                                            this.forecast_avg_monthly = 0.0;
-                                            this.forecast_months_used = 0;
-                                        }
-                                        cx.notify();
-                                    }),
-                                ),
-                        )
-                    })
-                    .child(
-                        div()
-                            .flex_1()
-                            .text_color(hsla(0.0, 0.0, 0.6, 1.0))
-                            .text_sm()
-                            .overflow_hidden()
-                            .child(status),
-                    ),
-            )
             // ── Chart area ───────────────────────────────────────────────
             .child(
                 div()
@@ -227,6 +362,8 @@ impl Render for PortfolioScreen {
                         .size_full(),
                     ),
             )
+            // ── Toolbar ─────────────────────────────────────────────────
+            .child(toolbar)
     }
 }
 
@@ -327,7 +464,10 @@ fn pick_and_load(_this: &mut PortfolioScreen, cx: &mut Context<'_, PortfolioScre
 const ML: f64 = 72.0;
 /// Right margin.
 const MR: f64 = 12.0;
-/// Top margin.
+/// Top margin. Reserve extra space on mobile devices with display cutouts / notches.
+#[cfg(any(target_os = "android", target_os = "ios"))]
+const MT: f64 = 44.0;
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
 const MT: f64 = 12.0;
 /// Bottom margin (X-axis labels).
 const MB: f64 = 28.0;

@@ -4,6 +4,8 @@ pub(crate) mod proto;
 pub mod views;
 #[cfg(target_os = "android")]
 pub(crate) mod android_content_reader;
+#[cfg(target_os = "android")]
+pub(crate) mod android_orientation;
 
 use anyhow::Result;
 use std::path::Path;
