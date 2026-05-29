@@ -29,8 +29,6 @@ pub struct PortfolioScreen {
     forecast_twr: f64,
     forecast_avg_monthly: f64,
     forecast_months_used: u32,
-    /// Current orientation: true = landscape, false = portrait
-    is_landscape: bool,
 }
 
 struct ChartData {
@@ -85,19 +83,6 @@ impl PortfolioScreen {
             forecast_twr: 0.0,
             forecast_avg_monthly: 0.0,
             forecast_months_used: 0,
-                is_landscape: {
-                    #[cfg(target_os = "android")]
-                    {
-                        match crate::android_orientation::is_landscape() {
-                            Ok(v) => v,
-                            Err(_) => true,
-                        }
-                    }
-                    #[cfg(not(target_os = "android"))]
-                    {
-                        true
-                    }
-                },
         }
     }
 
@@ -135,7 +120,20 @@ impl PortfolioScreen {
 // ── Render ────────────────────────────────────────────────────────────────
 
 impl Render for PortfolioScreen {
-    fn render(&mut self, _window: &mut Window, cx: &mut Context<'_, Self>) -> impl IntoElement {
+    fn render(&mut self, window: &mut Window, cx: &mut Context<'_, Self>) -> impl IntoElement {
+        let is_landscape = {
+            #[cfg(target_os = "android")]
+            {
+                match crate::android_orientation::is_landscape() {
+                    Ok(v) => v,
+                    Err(_) => window.bounds().size.width > window.bounds().size.height,
+                }
+            }
+            #[cfg(not(target_os = "android"))]
+            {
+                window.bounds().size.width > window.bounds().size.height
+            }
+        };
         let nav_data: Vec<(f64, f64)> = self
             .nav_series
             .iter()
@@ -158,7 +156,7 @@ impl Render for PortfolioScreen {
             None
         };
 
-        let toolbar = if self.is_landscape {
+        let toolbar = if is_landscape {
             div()
                 .flex()
                 .flex_row()
@@ -227,15 +225,15 @@ impl Render for PortfolioScreen {
                         .rounded_lg()
                         .cursor_pointer()
                         .text_color(hsla(0.0, 0.0, 1.0, 1.0))
-                        .child(if self.is_landscape { "Portrait" } else { "Landscape" })
+                        .child(if is_landscape { "Portrait" } else { "Landscape" })
                         .on_mouse_down(
                             MouseButton::Left,
-                            cx.listener(|this, _event, _window, cx| {
-                                this.is_landscape = !this.is_landscape;
+                            cx.listener(move |this, _event, _window, cx| {
                                 this.cursor_x = None;
+                                let _target_landscape = !is_landscape;
                                 #[cfg(target_os = "android")]
                                 {
-                                    let _ = crate::android_orientation::set_orientation(this.is_landscape);
+                                    let _ = crate::android_orientation::set_orientation(_target_landscape);
                                 }
                                 cx.notify();
                             }),
@@ -323,15 +321,15 @@ impl Render for PortfolioScreen {
                                 .rounded_lg()
                                 .cursor_pointer()
                                 .text_color(hsla(0.0, 0.0, 1.0, 1.0))
-                                .child(if self.is_landscape { "Portrait" } else { "Landscape" })
+                                .child(if is_landscape { "Portrait" } else { "Landscape" })
                                 .on_mouse_down(
                                     MouseButton::Left,
-                                    cx.listener(|this, _event, _window, cx| {
-                                        this.is_landscape = !this.is_landscape;
+                                    cx.listener(move |this, _event, _window, cx| {
                                         this.cursor_x = None;
+                                        let _target_landscape = !is_landscape;
                                         #[cfg(target_os = "android")]
                                         {
-                                            let _ = crate::android_orientation::set_orientation(this.is_landscape);
+                                            let _ = crate::android_orientation::set_orientation(_target_landscape);
                                         }
                                         cx.notify();
                                     }),
