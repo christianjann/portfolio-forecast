@@ -209,7 +209,8 @@ _android_install_and_launch() {
     fi
 
     local device_count
-    device_count=$(adb devices 2>/dev/null | grep -cE '\t(device|emulator)') || true
+    # Count attached devices/emulators robustly; avoid stray \t grep warning.
+    device_count=$(adb devices 2>/dev/null | awk 'NR>1 && ($2=="device" || $2=="emulator"){c++} END{print c+0}') || true
 
     if [[ "$device_count" -eq 0 ]]; then
         if [[ "$TARGET_KIND" == "emulator" ]]; then
