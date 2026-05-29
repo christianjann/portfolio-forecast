@@ -41,6 +41,37 @@ struct ChartData {
     forecast_legend: Option<(f64, f64, u32)>,
 }
 
+fn decode_percent_encoded(input: &str) -> String {
+    let bytes = input.as_bytes();
+    let mut out = Vec::with_capacity(bytes.len());
+    let mut i = 0;
+
+    while i < bytes.len() {
+        if bytes[i] == b'%' && i + 2 < bytes.len() {
+            let hi = from_hex(bytes[i + 1]);
+            let lo = from_hex(bytes[i + 2]);
+            if let (Some(hi), Some(lo)) = (hi, lo) {
+                out.push((hi << 4) | lo);
+                i += 3;
+                continue;
+            }
+        }
+        out.push(bytes[i]);
+        i += 1;
+    }
+
+    String::from_utf8(out).unwrap_or_else(|_| input.to_string())
+}
+
+fn from_hex(b: u8) -> Option<u8> {
+    match b {
+        b'0'..=b'9' => Some(b - b'0'),
+        b'a'..=b'f' => Some(10 + (b - b'a')),
+        b'A'..=b'F' => Some(10 + (b - b'A')),
+        _ => None,
+    }
+}
+
 impl PortfolioScreen {
     pub fn new() -> Self {
         Self {
@@ -408,7 +439,7 @@ fn pick_and_load(_this: &mut PortfolioScreen, cx: &mut Context<'_, PortfolioScre
                     };
 
                     log::info!("File selector returned: {}", selected.path);
-                    let name = selected.name.clone();
+                    let name = decode_percent_encoded(&selected.name);
                     let uri = selected.path.clone();
 
                     // On Android the path is a content:// URI; read bytes via JNI.
